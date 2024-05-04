@@ -20,7 +20,8 @@ int main() // int = variavel "inteiro"
 		printf("Escolha a opção desejada do menu abaixo: \n\n"); // \n = vai pra linha de baixo
 		printf("\t1. Registrar nomes \n"); // \t = parágrafo
 		printf("\t2. Consultar nomes \n");
-		printf("\t3. Deletar nomes \n\n\n");
+		printf("\t3. Deletar nomes \n");
+		printf("\t4. Fechar aplicativo \n\n\n\n");
 		printf("Opção:	"); // fim do menu
 	
 		scanf("%d", &opcao); // escaneando a escolha do usuário
@@ -43,6 +44,10 @@ int main() // int = variavel "inteiro"
 				deletar();
 				break;
 			
+			case 4:
+				printf("\tObrigado por utilizar o sistema\n\n");
+				return 0;
+				break;
 		
 			default :
 				printf("Essa opção não existe!\n"); // fim da seleção
@@ -177,20 +182,19 @@ int deletar()
 	FILE *dados;
 	dados = fopen(cpf, "r");
 	
-	if(dados == NULL);
-	{
-		system ("cls");
-		printf("\n\n\tO usuário não está no sistema.\n\n ");
-		system("pause");
-	}
-	
-	else
-	{
-		remove(cpf);
-		system ("cls");
-		printf("\n\n\tUsuário excluido com sucesso.\n\n");
-		system ("pause");
-	}
+	if(dados == NULL)
+{
+    system("cls");
+    printf("\n\n\tO usuário não está no sistema.\n\n ");
+    system("pause");
+}
+else
+{
+    remove(cpf);
+    system("cls");
+    printf("\n\n\tUsuário excluído com sucesso.\n\n");
+    system("pause");
+}
 
 	
 }
